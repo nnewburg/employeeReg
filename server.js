@@ -9,7 +9,6 @@ const bodyParser = require("body-parser");
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
 const PORT = 8080;
-const bcrypt = require('bcrypt');
 var path = require('path');
 
 app.set("view engine", "ejs");
