@@ -8,7 +8,7 @@ const ENV         = process.env.ENV || "development";
 const bodyParser = require("body-parser");
 const knexConfig  = require("./knexfile");
 const knex        = require("knex")(knexConfig[ENV]);
-const PORT = 8080;
+const PORT = 3000;
 var path = require('path');
 
 app.set("view engine", "ejs");
