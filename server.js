@@ -17,9 +17,18 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, '/public')));
 
 
+const employeeRoute = require("./routes/employeeRoute");
+
+app.use("/api/employee", employeeRoute(knex));
+
 app.get("/", (req, res) => {
   return res.render("index")
 })
+
+app.get("/employeeList", (req, res) => {
+  return res.render("listOfEmployee")
+})
+
 
 app.post("/addEmployee", (req, res) => {
   knex("employees").insert({name: req.body.name, email: req.body.email, position: req.body.position, phone: req.body.phone, salary: req.body.salary, date_hired: req.body.date_hired}).then(result => {
